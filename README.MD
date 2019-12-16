@@ -1,4 +1,4 @@
-# drag-drop-layout
+# drag-drop-view
 
 ## Installation
 
@@ -6,7 +6,7 @@ To install this library, run:
 
 
 ```bash
-$ npm install drag-drop-layout --save
+$ npm install drag-drop-view --save
 ```
 
 ## Consuming your library
@@ -14,7 +14,7 @@ $ npm install drag-drop-layout --save
 Once you have published your library to npm, you can import your library in any Angular application by running:
 
 ```bash
-$ npm install drag-drop-layout
+$ npm install drag-drop-view
 ```
 
 and then from your Angular `AppModule`:
@@ -26,7 +26,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 // Import your library  s
-import { SampleModule } from '# drag-drop-layout';
+import { SampleModule } from '# drag-drop-view';
 
 @NgModule({
   declarations: [
@@ -44,7 +44,7 @@ import { SampleModule } from '# drag-drop-layout';
 export class AppModule { }
 ```
 
-Once your library is imported, you can use its drag-drop-layout, directives and pipes in your Angular application:
+Once your library is imported, you can use its drag-drop-view, directives and pipes in your Angular application:
 
 ```xml
 <!-- You can now use your library component in app.component.html -->

@@ -21,8 +21,8 @@
     "annotateForClosureCompiler": true,
     "strictMetadataEmit": true,
     "skipTemplateCodegen": true,
-    "flatModuleOutFile": "drag-drop-layout.js",
-    "flatModuleId": "drag-drop-layout"
+    "flatModuleOutFile": "drag-drop-view.js",
+    "flatModuleId": "drag-drop-view"
   },
   "files": [
     "./index.ts"

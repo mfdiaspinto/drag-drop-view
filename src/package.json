@@ -1,5 +1,5 @@
 {
-  "name": "drag-drop-layout",
+  "name": "drag-drop-view",
   "version": "0.0.3",
   "repository": {
     "type": "git",
@@ -16,10 +16,10 @@
   "bugs": {
     "url": "https://github.com/username/repo/issues"
   },
-  "main": "drag-drop-layout.umd.js",
-  "module": "drag-drop-layout.js",
-  "jsnext:main": "drag-drop-layout.js",
-  "typings": "drag-drop-layout.d.ts",
+  "main": "drag-drop-view.umd.js",
+  "module": "drag-drop-view.js",
+  "jsnext:main": "drag-drop-view.js",
+  "typings": "drag-drop-view.d.ts",
   "peerDependencies": {
     "@angular/core": "^6.1.8",
     "rxjs": "^6.3.3",
