@@ -20,7 +20,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/username/repo"
+        "url": "https://https://github.com/mfdiaspinto/drag-drop-view"
     },
     "author": {
         "name": "Miguel Pinto",
@@ -31,7 +31,7 @@
     ],
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/username/repo/issues"
+        "url": "https://https://github.com/mfdiaspinto/drag-drop-view/issues"
     },
     "devDependencies": {
         "@angular-devkit/build-angular": "^0.800.3",
