@@ -1,23 +1,6 @@
 {
     "name": "drag-drop-view",
     "version": "0.0.13",
-    "scripts": {
-        "build": "gulp build",
-        "build:watch": "gulp",
-        "publish": "gulp build && npm publish dist",
-        "docs": "npm run docs:build",
-        "docs:build": "compodoc -p tsconfig.json -n drag-drop-view -d docs --hideGenerator",
-        "docs:serve": "npm run docs:build -- -s",
-        "docs:watch": "npm run docs:build -- -s -w",
-        "lint": "tslint --type-check --project tsconfig.json src/**/*.ts",
-        "lite": "lite-server",
-        "playground:build": "tsc -p playground -w",
-        "playground": "concurrently \"npm run build:watch\" \"npm run playground:build\" \"npm run lite\"",
-        "devtest": "ng test",
-        "test": "ng test --watch=false --browsers ChromeHeadless --code-coverage=true",
-        "json-server": "json-server --watch db.json --port 3004",
-        "forceCleanChache": "npm uninstall @angular/cli && npm cache clean --force && npm cache verify && npm install typescript@3.4.5 --save-dev  && npm install @angular/cli@8.0.3 --save-dev && npm i --save-dev --save-exact"
-    },
     "repository": {
         "type": "git",
         "url": "https://github.com/mfdiaspinto/drag-drop-view"
