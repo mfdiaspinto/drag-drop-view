@@ -1,24 +1,24 @@
 import { NgModule, ModuleWithProviders } from "@angular/core";
-import { DragAndDropSingleDivDirective } from "./directives/edit-layout-simple.directive";
-export { DragAndDropSingleDivDirective } from "./directives/edit-layout-simple.directive";
+import { DragAndDropChildrenDirective } from "./directives/edit-layout-simple.directive";
+export { DragAndDropChildrenDirective } from "./directives/edit-layout-simple.directive";
 
 @NgModule({
   imports: [
   ],
-  declarations: [DragAndDropSingleDivDirective
+  declarations: [DragAndDropChildrenDirective
   ],
   entryComponents: [
   ],
   providers: [
   ],
-  exports: [DragAndDropSingleDivDirective
+  exports: [DragAndDropChildrenDirective
   ]
 })
-export class PrimaveraDragAndDropLayoutModule {
+export class DragAndDropViewModule {
   static forRoot(): ModuleWithProviders {
     return {
-      ngModule: PrimaveraDragAndDropLayoutModule,
-    };
+      ngModule: DragAndDropViewModule,
+    }; 
   }
 }
 

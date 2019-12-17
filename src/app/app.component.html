@@ -1,7 +1,6 @@
-<div class="postaman-container" drag-and-drop-single-div [list-to-order]="fields">
-    <div class="postaman-bar-container" *ngFor="let item of fields">
-      {{item.key}}
+<div class="edit-layout-list" drag-and-drop-children [list-to-order]="fields" class-to-ignore="ignore" *ngIf="show">
+    <div class="edit-layout-box" *ngFor="let item of fields" [ngClass]="{'ignore': item.key == 2 || item.key == 5 }">
+      {{item.key}} - {{item.name}}
     </div>
-    <textarea class="postaman-result-area">2</textarea>
-</div>
+  </div>
 

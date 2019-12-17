@@ -2,11 +2,16 @@ import { Directive, HostBinding, ElementRef, Renderer, ChangeDetectorRef, AfterV
 import { CdkDropList, DragDrop, DropListRef, DragRef, moveItemInArray} from '@angular/cdk/drag-drop';
 
 @Directive({
-  selector: '[drag-and-drop-single-div]',
+  selector: '[drag-and-drop-children]',
 })
-export class DragAndDropSingleDivDirective implements AfterViewInit {
-    @Input('list-to-order') list: any[];
-    @Input('list-to-order-disabed')
+export class DragAndDropChildrenDirective {
+    @Input('list-to-order')
+    list:any[]
+
+    @Input('class-to-ignore')
+    classToIgnore:string
+
+    @Input('disabed')
     set disabled(value: boolean) {
       if (this.dropList) {
         this.dropList.disabled = value;
@@ -22,13 +27,18 @@ export class DragAndDropSingleDivDirective implements AfterViewInit {
     }
 
     ngAfterViewInit() {
-      this.dropList = this.dragDropservice.createDropList(this.elementRef);
+ 
+      if (this.dropList) {
+      } else {
+        this.dropList = this.dragDropservice.createDropList(this.elementRef);
+      }
       let dragList: DragRef[] = [];
-      let s = this.dragDropservice;
+      let selt = this;
 
       Array.prototype.forEach.call(this.elementRef.nativeElement.children, function(o:any){
           let newElement = new ElementRef(o);
-          let newElementDrag = s.createDrag(newElement);
+          let newElementDrag = selt.dragDropservice.createDrag(newElement);
+          newElementDrag.disabled = selt.classToIgnore ? o.className.indexOf(selt.classToIgnore) !== -1 : false;
           dragList.push(newElementDrag);
       });
 

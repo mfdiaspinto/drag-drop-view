@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { PrimaveraDragAndDropLayoutModule } from '../index';
+import { DragAndDropViewModule } from '../index';
 
 @NgModule({
   declarations: [
@@ -14,7 +14,7 @@ import { PrimaveraDragAndDropLayoutModule } from '../index';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    PrimaveraDragAndDropLayoutModule.forRoot()
+    DragAndDropViewModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
