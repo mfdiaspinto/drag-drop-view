@@ -1,6 +1,6 @@
 {
     "name": "drag-drop-view",
-    "version": "0.0.17",
+    "version": "0.0.18",
     "repository": {
         "type": "git",
         "url": "https://github.com/mfdiaspinto/drag-drop-view"
@@ -21,6 +21,13 @@
     "jsnext:main": "drag-drop-view.js",
     "typings": "drag-drop-view.d.ts",
     "peerDependencies": {
+        "@angular/material": "^7.3.7",
+        "@angular/cdk": "^7.3.7",
+        "rxjs": "~6.4.0",
+        "tslib": "^1.10.0",
+        "zone.js": "~0.9.1"
+    },
+    "dependencies": {
         "@angular/material": "^7.3.7",
         "@angular/cdk": "^7.3.7",
         "rxjs": "~6.4.0",
