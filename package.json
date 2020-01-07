@@ -1,6 +1,6 @@
 {
     "name": "drag-drop-view",
-    "version": "0.0.18",
+    "version": "0.0.19",
     "scripts": {
         "build": "gulp build",
         "build:watch": "gulp",
