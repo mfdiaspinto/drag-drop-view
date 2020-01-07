@@ -1,14 +1,14 @@
-import { Directive, HostBinding, ElementRef, Renderer, ChangeDetectorRef, AfterViewInit, ViewChildren, Input } from '@angular/core';
+import { Directive, HostBinding, ElementRef, Renderer, ChangeDetectorRef, AfterViewInit, ViewChildren, Input, EventEmitter, Output } from '@angular/core';
 import { CdkDropList, DragDrop, DropListRef, DragRef, moveItemInArray} from '@angular/cdk/drag-drop';
 
 @Directive({
   selector: '[drag-and-drop-children]',
 })
 export class DragAndDropChildrenDirective {
-    @Input('list-to-order')
+    @Input('list')
     list:any[]
 
-    @Input('class-to-ignore')
+    @Input('ignoreClass')
     classToIgnore:string
 
     @Input('disabed')
@@ -18,6 +18,9 @@ export class DragAndDropChildrenDirective {
       } 
       this.isDisabled = value;
     }
+
+    @Output() change = new EventEmitter();
+
 
     private isDisabled: boolean= false;
     private dropList: DropListRef;
@@ -46,6 +49,8 @@ export class DragAndDropChildrenDirective {
       this.dropList.dropped.subscribe(o => {
         moveItemInArray(this.list, o.previousIndex, o.currentIndex);
         moveItemInArray(dragList, o.previousIndex, o.currentIndex);
+
+        this.change.emit(this.list);
       });
 
       this.dropList.disabled = this.isDisabled;

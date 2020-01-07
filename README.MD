@@ -52,16 +52,12 @@ Once the modulo is imported, you can use directives to drag and drop your layout
 
 This directive provides drag-and-drop functionality inside a html element.
 
-  
-
 #### How to use
-
-  
 
 Add directive to your element and pass your list to directive
 
 ```xml
-<div drag-and-drop-children [list-to-order]="fields">
+<div drag-and-drop-children [list]="fields">
 	<div *ngFor="let field of fields">
 	{{field.name}}
 	</div>
@@ -74,7 +70,7 @@ Its possible to ignore some children elements to don't allow drag and drop, for 
 
 ```xml
 
-<div drag-and-drop-children [list-to-order]="fields"  class-to-ignore="ignore">
+<div drag-and-drop-children [list]="fields"  ignoreClass="ignore">
     <div *ngFor="let field of fields" [ngClass]="{'ignore': item.key == 2}">
     {{field.name}}
     </div>
