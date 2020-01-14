@@ -11,6 +11,32 @@ export class DragAndDropChildrenDirective {
     @Input('ignoreClass')
     classToIgnore:string
 
+    @Input('rebuild')
+    set rebuild(list: any) {
+      if (this.dropList) {
+        setTimeout(() => {
+          this.dropList = this.dragDropservice.createDropList(this.elementRef);
+          let dragList: DragRef[] = [];
+          let selt = this;
+
+          Array.prototype.forEach.call(this.elementRef.nativeElement.children, function(o:any){
+              let newElement = new ElementRef(o);
+              let newElementDrag = selt.dragDropservice.createDrag(newElement);
+              newElementDrag.disabled = selt.classToIgnore ? o.className.indexOf(selt.classToIgnore) !== -1 : false;
+              dragList.push(newElementDrag);
+          });
+
+          this.dropList.withItems(dragList);
+          this.dropList.dropped.subscribe(o => {
+            moveItemInArray(this.list, o.previousIndex, o.currentIndex);
+            moveItemInArray(dragList, o.previousIndex, o.currentIndex);
+
+            this.change.emit(this.list);
+          });
+        }, 100);
+      }
+    }
+    
     @Input('disabed')
     set disabled(value: boolean) {
       if (this.dropList) {
@@ -18,6 +44,7 @@ export class DragAndDropChildrenDirective {
       } 
       this.isDisabled = value;
     }
+
 
     @Output() change = new EventEmitter();
 
