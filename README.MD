@@ -66,7 +66,7 @@ Add directive to your element and pass your list to directive
 
   
 
-Its possible to ignore some children elements to don't allow drag and drop, for that you need:
+It's possible to ignore some children elements to don't allow drag and drop, for that you need:
 
 ```xml
 
@@ -77,27 +77,60 @@ Its possible to ignore some children elements to don't allow drag and drop, for 
 </div>
 ```
 
-## Development
+![Drag-Drop-Multi](./dragdropsimple.png)
 
-To generate all `*.js`, `*.d.ts` and `*.metadata.json` files:
+### DragAndDropToDirective
 
-```bash
-$ npm run build
+This directive provides drag-and-drop between two html elements.
+
+
+#### How to use
+
+Add directive to your element and pass your list to directive
+
+```xml
+<div>
+  <div class="edit-layout-list"
+       [drag-and-drop-to]="connectTo"
+       [list]="todoData"
+       (change)="print($event)">
+
+    <div class="edit-layout-box" *ngFor="let item of fieldsMulti1">
+      {{item.key}} - {{item.name}}
+    </div>
+  </div>
+  
+  <div #done class="edit-layout-list" >
+    <div class="edit-layout-box" *ngFor="let item of doneData">
+      {{item.key}} - {{item.name}}
+    </div>
+  </div>
+</div>
 ```
 
-To lint all `*.ts` files:
-```bash
-$ npm run lint
+Typescript
+
+```
+  ...
+  doneList: any[] = [{key:0, name:'Task 1: Build component'},
+            {key:1, 'Task 1: Build directive to'}] 
+
+  @ViewChild('done', { read: ViewContainerRef, static: false })
+  public done: ViewContainerRef;
+
+  private connectTo: DragAndDropConnectTo;
+
+  ...
+  this.connectTo = {
+      data : this.doneList,
+      viewElement : this.done
+  }
+  ...
 ```
 
-  
 
-  
+![Drag-Drop-Multi](./dragdropmulti.png)
 
 ## License
-
-  
-
-  
 
 MIT © [# mfdiaspinto](mailto:mfdiaspinto@gmail.com )

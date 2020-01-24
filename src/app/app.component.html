@@ -1,6 +1,30 @@
-<div class="edit-layout-list" drag-and-drop-children [list-to-order]="fields" class-to-ignore="ignore" *ngIf="show">
+
+  <h1>Order List</h1>
+  <div class="edit-layout-list" drag-and-drop-children [list]="fields" ignoreClass="ignore" *ngIf="show" (change)="print($event)">
     <div class="edit-layout-box" *ngFor="let item of fields" [ngClass]="{'ignore': item.key == 2 || item.key == 5 }">
       {{item.key}} - {{item.name}}
     </div>
   </div>
 
+
+  <h1>TASKS</h1>
+  <div style="display: flex">
+    <div style="flex: 1" >
+      <h2>TODO</h2>
+
+      <div class="edit-layout-list" [drag-and-drop-to]="connectTo" [list]="doneList" (change)="print($event)">
+        <div class="edit-layout-box" *ngFor="let item of doneList">
+          {{item.key}} - {{item.name}}
+        </div>
+      </div>
+    </div>
+    <div style="flex: 1; margin-left: 20px" >
+      <h2>DONE</h2>
+
+      <div #done class="edit-layout-list">
+        <div class="edit-layout-box" *ngFor="let item of todoList">
+          {{item.key}} - {{item.name}}
+        </div>
+      </div>
+  </div>
+</div>

@@ -5,6 +5,7 @@ import { CdkDropList, DragDrop, DropListRef, DragRef, moveItemInArray} from '@an
   selector: '[drag-and-drop-children]',
 })
 export class DragAndDropChildrenDirective {
+  
     @Input('list')
     list:any[]
 
